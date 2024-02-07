@@ -150,7 +150,10 @@ UnityFramework* UnityFrameworkLoad()
     NSString* gameObj = [paramstoPass valueForKey:@"gameobject"];
     NSString* fnctnName = [paramstoPass valueForKey:@"method"];
     NSString* argumentParam = [paramstoPass valueForKey:@"argument"];
-    [[self ufw] sendMessageToGOWithName: [gameObj cStringUsingEncoding:[NSString defaultCStringEncoding]] functionName:[fnctnName cStringUsingEncoding:[NSString defaultCStringEncoding]] message:[argumentParam cStringUsingEncoding:[NSString defaultCStringEncoding]]];
+    
+    [[self ufw] sendMessageToGOWithName: [gameObj cStringUsingEncoding:[NSString defaultCStringEncoding]] functionName:[fnctnName cStringUsingEncoding:[NSString defaultCStringEncoding]]
+        message:[argumentParam UTF8String]
+    ];
 }
 
 @end
